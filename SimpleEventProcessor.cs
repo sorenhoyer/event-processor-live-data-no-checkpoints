@@ -37,7 +37,7 @@ namespace event_processor_live_data_no_checkpoints
                 Console.WriteLine($"Message received. Partition: '{context.PartitionId}', Data: '{data}'");
                 
             }
-            return context.CheckpointAsync();
+            return Task.Factory.StartNew(() => { return true; });
         }
     }
 }
